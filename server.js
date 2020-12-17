@@ -21,7 +21,7 @@ app.use('/img', express.static(path.resolve(__dirname, 'assets/img')));
 app.use('/js', express.static(path.resolve(__dirname, 'assets/js')));
 
 app.get('/', (req, res) => {
-  res.send('Use Management System');
+  res.render('index');
 });
 
 const PORT = process.env.PORT || 3000;
