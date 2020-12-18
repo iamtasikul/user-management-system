@@ -1,3 +1,5 @@
+const UserDB = require('../model/model');
+
 const indexController = (req, res) => {
   res.render('index');
 };
