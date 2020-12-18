@@ -32,15 +32,36 @@ exports.create = (req, res) => {
 
 //Read/Retrieve All/Single User
 exports.find = (req, res) => {
-  UserDB.find()
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some Error Occured While Fetch Data From DB',
+  if (req.query.id) {
+    //Retrieve Single User
+    const id = req.query.id;
+    UserDB.findById(id)
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Not Found User id ${id}`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: `Error in Retrieving user id ${id}`,
+        });
       });
-    });
+  } else {
+    //Retrieve All Users
+    UserDB.find()
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Some Error Occured While Fetch Data From DB',
+        });
+      });
+  }
 };
 
 //Update User By id
