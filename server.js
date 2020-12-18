@@ -4,6 +4,10 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 
+//Database Connection
+const connectDB = require('./config/db');
+connectDB();
+
 //Router
 const mainRoutes = require('./routes/mainRouter');
 
