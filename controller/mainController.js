@@ -30,6 +30,19 @@ exports.create = (req, res) => {
     });
 };
 
+//Read/Retrieve All/Single User
+exports.find = (req, res) => {
+  UserDB.find()
+    .then((user) => {
+      res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some Error Occured While Fetch Data From DB',
+      });
+    });
+};
+
 const indexController = (req, res) => {
   res.render('index');
 };

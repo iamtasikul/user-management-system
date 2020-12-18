@@ -11,5 +11,6 @@ route.get('/update-user', mainController.updateUserController);
 
 //API
 route.post('/api/users', mainController.create);
+route.get('/api/users', mainController.find);
 
 module.exports = route;
