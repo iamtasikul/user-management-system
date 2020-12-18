@@ -13,5 +13,6 @@ route.get('/update-user', mainController.updateUserController);
 route.post('/api/users', mainController.create);
 route.get('/api/users', mainController.find);
 route.put('/api/users/:id', mainController.update);
+route.delete('/api/users/:id', mainController.delete);
 
 module.exports = route;
