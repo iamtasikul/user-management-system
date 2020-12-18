@@ -43,6 +43,34 @@ exports.find = (req, res) => {
     });
 };
 
+//Update User By id
+exports.update = (req, res) => {
+  //validate Request
+  if (!req.body) {
+    res.status(400).send({ message: 'Data to Update Can Not Be Empty' });
+    return;
+  }
+
+  const id = req.params.id;
+  UserDB.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot Update user with ${id} , Maybe User Not Found`,
+        });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Error Update User Information',
+      });
+    });
+
+  //
+};
+
 const indexController = (req, res) => {
   res.render('index');
 };
