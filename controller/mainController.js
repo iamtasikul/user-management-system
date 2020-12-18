@@ -116,9 +116,8 @@ exports.delete = (req, res) => {
 
 const indexController = (req, res) => {
   // Make a get request to /api/users
-  const PORT = process.env.PORT || 3000;
   axios
-    .get(`http://localhost:${PORT}/api/users`)
+    .get(`http://localhost:5000/api/users`)
     .then(function (response) {
       res.render('index', { users: response.data });
     })
@@ -132,9 +131,18 @@ const addUserController = (req, res) => {
 };
 
 const updateUserController = (req, res) => {
-  res.render('update_user');
+  axios
+    .get(`http://localhost:5000/api/users`, {
+      params: { id: req.query.id },
+    })
+    .then(function (userdata) {
+      res.render('update_user', { user: userdata.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 exports.indexController = indexController;
 exports.addUserController = addUserController;
-exports.updateUserController = indexController;
+exports.updateUserController = updateUserController;
