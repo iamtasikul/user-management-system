@@ -3,54 +3,36 @@
 <!-- /include header end -->
 
 <!--Main Site Start Here-->
-    <main id="site-main">
-      <div class="container">
-        <div class="box-nav d-flex justify-between">
-          <a href="/add-user" class="border-shadow">
-            <span class="text-gradient"
-              ><i class="fa fa-user" aria-hidden="true"></i> New User</span
-            >
-          </a>
-        </div>
-        <!-- form handling -->
-        <form action="/" method="POST">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>@Email</th>
-                <th>Gender</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Tasikul Islam</td>
-                <td>iamtasikul</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>
-                  <a href="/update-user" class="btn border-shadow update">
-                    <span class="text-gradient"
-                      ><i class="fas fa-pencil-alt"></i
-                    ></span>
-                  </a>
-                  <a class="btn border-shadow delete">
-                    <span class="text-gradient"
-                      ><i class="fas fa-times"></i
-                    ></span>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-      </div>
-    </main>
-    <!--Main Site End Here-->
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <a href="/add-user" class="border-shadow">
+        <span class="text-gradient"
+          ><i class="fa fa-user" aria-hidden="true"></i> New User</span
+        >
+      </a>
+    </div>
+    <!-- form handling -->
+    <form action="/" method="POST">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>@Email</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%- include('include/_show') %>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</main>
+<!--Main Site End Here-->
 
 <!-- include footer -->
 <%- include('include/_footer') %>

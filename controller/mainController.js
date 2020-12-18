@@ -1,3 +1,4 @@
+const axios = require('axios');
 const UserDB = require('../model/model');
 
 //Create and Save New User
@@ -113,7 +114,16 @@ exports.delete = (req, res) => {
 };
 
 const indexController = (req, res) => {
-  res.render('index');
+  // Make a get request to /api/users
+  const PORT = process.env.PORT || 3000;
+  axios
+    .get(`http://localhost:${PORT}/api/users`)
+    .then(function (response) {
+      res.render('index', { users: response.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 const addUserController = (req, res) => {
