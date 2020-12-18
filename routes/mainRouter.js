@@ -1,16 +1,12 @@
 const express = require('express');
 const route = express.Router();
 
-route.get('/', (req, res) => {
-  res.render('index');
-});
+const mainController = require('../controller/mainController');
 
-route.get('/add-user', (req, res) => {
-  res.render('add_user');
-});
+route.get('/', mainController.indexController);
 
-route.get('/update-user', (req, res) => {
-  res.render('update_user');
-});
+route.get('/add-user', mainController.addUserController);
+
+route.get('/update-user', mainController.updateUserController);
 
 module.exports = route;
