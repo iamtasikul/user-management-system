@@ -9,4 +9,7 @@ route.get('/add-user', mainController.addUserController);
 
 route.get('/update-user', mainController.updateUserController);
 
+//API
+route.post('/api/users', mainController.create);
+
 module.exports = route;
