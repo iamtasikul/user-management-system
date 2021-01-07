@@ -4,8 +4,7 @@
 
 User Management System Using NodeJS, ExpressJS, MongoDB
 
-## Live Project URL
 
-### Screenshot
+## Screenshot
 
 ![Screenshot](https://github.com/iamtasikul/user-management-system/blob/master/screenshot.png)
